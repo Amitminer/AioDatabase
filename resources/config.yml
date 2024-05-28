@@ -1,0 +1,17 @@
+database:
+  # Specify the database type: either "sqlite" or "mysql".
+  type: sqlite
+
+  # Configuration for SQLite database
+  sqlite:
+    # The name of the SQLite database file. 
+    # You can provide an absolute path or just the file name if it is located in the data folder.
+    file: data.sqlite
+
+  # Configuration for MySQL database
+  mysql:
+    host: 127.0.0.1
+    # It's recommended not to use the "root" user for security reasons.
+    username: root
+    password: ""
+    schema: your_schema
