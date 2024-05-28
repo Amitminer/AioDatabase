@@ -1,15 +1,25 @@
+"""
+This module provides the DataConnector class for connecting to different types of databases.
+"""
+
+from typing import Optional
 import aiosqlite
 import aiomysql
 from .manager.configManager import ConfigManager
-from typing import Optional
 
 
 class DataConnector:
+    """
+    The DataConnector class provides methods to connect to, disconnect from,
+    and interact with different types of databases.
+    """
+
     conn: Optional[object] = None
 
     @staticmethod
     async def connect(configPath: str) -> None:
-        """Connect to the database using the configuration file path.
+        """
+        Connect to the database using the configuration file path.
 
         Args:
             configPath (str): The path to the configuration file.
@@ -34,7 +44,8 @@ class DataConnector:
 
     @staticmethod
     async def get_cursor() -> Optional[object]:
-        """Get the database cursor.
+        """
+        Get the database cursor.
 
         Returns:
             object: The database cursor.
@@ -43,6 +54,8 @@ class DataConnector:
 
     @staticmethod
     async def disconnect() -> None:
-        """Disconnect from the database."""
+        """
+        Disconnect from the database.
+        """
         if DataConnector.conn:
             await DataConnector.conn.close()

@@ -5,5 +5,9 @@
   },
   "python.testing.pytestArgs": ["aiodatabase"],
   "python.testing.unittestEnabled": false,
-  "python.testing.pytestEnabled": true
+  "python.testing.pytestEnabled": true,
+  "pylint.args": [
+      "--variable-naming-style=camelCase",
+      "--function-naming-style=camelCase"
+    ]
 }

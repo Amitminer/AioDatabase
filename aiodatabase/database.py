@@ -1,7 +1,10 @@
+"""
+This module provides the Database class for managing database operations.
+"""
+
 from typing import Optional, Any, Dict, Union, Tuple, List
 from .sqlite3.sqlLoader import SqlLoader
 from .dataConnector import DataConnector
-import asyncio
 
 
 class Database:

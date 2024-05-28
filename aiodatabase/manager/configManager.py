@@ -1,12 +1,19 @@
-import yaml
+"""
+A module to manage configuration settings loaded from a YAML file.
+"""
+
 from typing import Optional
+import yaml
 
 
 class ConfigManager:
-    """A class to manage configuration settings loaded from a YAML file."""
+    """
+    A class to manage configuration settings loaded from a YAML file.
+    """
 
     def __init__(self, file_path: str = "config.yml") -> None:
-        """Initialize the ConfigManager with the path to the configuration file.
+        """
+        Initialize the ConfigManager with the path to the configuration file.
 
         Args:
             file_path (str, optional): The path to the YAML configuration file.
@@ -15,7 +22,8 @@ class ConfigManager:
         self.config = self.load_config(file_path)
 
     def load_config(self, file_path: str) -> dict:
-        """Load the YAML configuration file.
+        """
+        Load the YAML configuration file.
 
         Args:
             file_path (str): The path to the YAML configuration file.
@@ -23,11 +31,12 @@ class ConfigManager:
         Returns:
             dict: The parsed configuration settings as a dictionary.
         """
-        with open(file_path, "r") as file:
+        with open(file_path, "r", encoding="utf-8") as file:
             return yaml.safe_load(file)
 
     def get_database_config(self) -> dict:
-        """Get the database configuration settings.
+        """
+        Get the database configuration settings.
 
         Returns:
             dict: The database configuration settings.
@@ -35,7 +44,8 @@ class ConfigManager:
         return self.config.get("database", {})
 
     def get_database_type(self) -> Optional[str]:
-        """Get the type of database being used.
+        """
+        Get the type of database being used.
 
         Returns:
             str: The type of database ("sqlite" or "mysql").
@@ -43,7 +53,8 @@ class ConfigManager:
         return self.config["database"].get("type")
 
     def get_sqlite_file_path(self) -> Optional[str]:
-        """Get the file path for SQLite database.
+        """
+        Get the file path for SQLite database.
 
         Returns:
             str: The file path for the SQLite database.
@@ -51,7 +62,8 @@ class ConfigManager:
         return self.config["database"]["sqlite"].get("file")
 
     def get_mysql_host(self) -> Optional[str]:
-        """Get the MySQL host address.
+        """
+        Get the MySQL host address.
 
         Returns:
             str: The MySQL host address.
@@ -59,7 +71,8 @@ class ConfigManager:
         return self.config["database"]["mysql"].get("host")
 
     def get_mysql_username(self) -> Optional[str]:
-        """Get the MySQL username.
+        """
+        Get the MySQL username.
 
         Returns:
             str: The MySQL username.
@@ -67,7 +80,8 @@ class ConfigManager:
         return self.config["database"]["mysql"].get("username")
 
     def get_mysql_password(self) -> Optional[str]:
-        """Get the MySQL password.
+        """
+        Get the MySQL password.
 
         Returns:
             str: The MySQL password.
@@ -75,7 +89,8 @@ class ConfigManager:
         return self.config["database"]["mysql"].get("password")
 
     def get_mysql_schema(self) -> Optional[str]:
-        """Get the MySQL schema name.
+        """
+        Get the MySQL schema name.
 
         Returns:
             str: The MySQL schema name.
